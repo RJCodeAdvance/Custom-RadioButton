@@ -49,6 +49,8 @@ namespace CustomControls.RJControls
         public RJRadioButton()
         {
             this.MinimumSize = new Size(0, 21);
+            //Add a padding of 10 to the left to have a considerable distance between the text and the RadioButton.
+            this.Padding = new Padding(10,0,0,0);
         }
 
         //Overridden methods
@@ -97,10 +99,13 @@ namespace CustomControls.RJControls
                     rbBorderSize + 8, (this.Height - TextRenderer.MeasureText(this.Text, this.Font).Height) / 2);//Y=Center
             }
         }
-        protected override void OnResize(EventArgs e)
-        {
-            base.OnResize(e);
-            this.Width = TextRenderer.MeasureText(this.Text, this.Font).Width + 30;
-        }
+        
+        //X-> Obsolete code, this was replaced by the Padding property in the constructor
+        //(this.Padding = new Padding(10,0,0,0);)
+        //protected override void OnResize(EventArgs e)
+        //{
+        //    base.OnResize(e);
+        //    this.Width = TextRenderer.MeasureText(this.Text, this.Font).Width + 30;
+        //}
     }
 }
